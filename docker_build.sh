@@ -2,6 +2,7 @@
 
 container_name="LASKV"
 image_name_version="cuda11.8.0-devel-ubuntu22.04-lyj:0.2"
+vscode_port=10002
 
 # 暂停并删除容器
 docker stop ${container_name} && docker rm ${container_name}
@@ -30,7 +31,7 @@ docker run -itd \
     --name ${container_name} \
     --runtime=nvidia \
     --gpus all \
-    -p 10002:10008 \
+    -p ${vscode_port}:10008 \
     -v ${data_mount_path}:${data_mount_path_docker}:rw \
     -v ${project_mount_path}:${project_mount_path_docker}:rw \
     -v ${huggingface_mount_path}:${huggingface_mount_path_docker}:rw \
