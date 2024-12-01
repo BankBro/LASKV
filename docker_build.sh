@@ -37,3 +37,13 @@ docker run -itd \
     -v ${huggingface_mount_path}:${huggingface_mount_path_docker}:rw \
     ${image_name_version}
 docker exec -it ${container_name} /bin/bash
+
+
+docker exec -it LASKV /bin/bash
+
+# docker run -itd \
+#     --name cuda_test \
+#     --runtime=nvidia \
+#     --gpus all \
+#     nvidia/cuda:11.8.0-devel-ubuntu22.04
+# docker exec -it cuda_test /bin/bash
